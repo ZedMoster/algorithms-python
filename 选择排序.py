@@ -1,16 +1,25 @@
 # -*- coding:utf-8 -*-
 # @Time      : 2020-09-14
 # @Author    : xml
+import random
+from cal_time import *
 
+@cal_time
 def select_sort(li):
-    for i in range(len(li)):
-        temp = i
-        for j in range(temp, len(li)):
-            if li[j] < li[i]:
-                li[i], li[j] = li[j], li[i]
+    for i in range(len(li) - 1):                  # 排序趟数 = 列表长度-1
+        min_loc = i                               # 待排序区域 默认最小值为第一个数
+        for j in range(min_loc + 1, len(li)):     # 排序区
+            if li[j] < li[min_loc]:               # 判断当前值是否小于初始值
+                min_loc = j                       # 初始值 == 当前值 定位
+        li[i], li[min_loc] = li[min_loc], li[i]   # 最小值替换到无序区初始位置
+        # print(li)
 
+if __name__ == '__main__':
+    li = list(range(10000))
+    random.shuffle(li)
 
-li = [1,12,584,6,4]
+    select_sort(li)
 
-select_sort(li)
-print(li)
+'''
+select_sort running time: 2.0951507091522217 secs.
+'''

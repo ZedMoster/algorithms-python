@@ -3,7 +3,9 @@
 # @Author    : xml
 
 import random
+from cal_time import *
 
+@cal_time
 def bubble_sort(li):
     '''列表进行冒泡排序 时间复杂度：O(n2)'''
     for i in range(len(li) - 1):
@@ -15,20 +17,14 @@ def bubble_sort(li):
         # 本次冒泡未作交换 表示列表已经有序
         if nochange:
             break
-        print(li)     # 打印本次排序后的列表结果
+        # print(li)
 
+if __name__ == '__main__':
+    li = list(range(10000))
+    random.shuffle(li)
 
-# li = [random.randint(0,11) for i in range(10)]
-li = [9,8,7,1,2,3,4]
-
-print(li) # 打印原始列表
-print("-----")
-bubble_sort(li)
+    bubble_sort(li)
 
 '''
-[9, 8, 7, 1, 2, 3, 4]
------
-[8, 7, 1, 2, 3, 4, 9]
-[7, 1, 2, 3, 4, 8, 9]
-[1, 2, 3, 4, 7, 8, 9]
+bubble_sort running time: 7.181552886962891 secs.
 '''
