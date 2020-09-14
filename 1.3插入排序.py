@@ -6,6 +6,7 @@ from cal_time import *
 
 @cal_time
 def insert_sort(li):
+    '''时间复杂度： O(n2)'''
     for i in range(1, len(li)):            # i 表示摸到的牌的下标
         j = i - 1                          # j 表示手里抓牌的下标
         temp = li[i]                       # 摸到的牌的临时变量
@@ -22,5 +23,6 @@ if __name__ == '__main__':
     insert_sort(li)
 
 '''
-insert_sort running time: 2.8778438568115234 secs.
+---- insert_sort ----
+Running Time: 2.9525856971740723 secs.
 '''

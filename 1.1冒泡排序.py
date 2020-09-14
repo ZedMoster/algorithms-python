@@ -7,7 +7,7 @@ from cal_time import *
 
 @cal_time
 def bubble_sort(li):
-    '''列表进行冒泡排序 时间复杂度：O(n2)'''
+    '''时间复杂度：O(n2)'''
     for i in range(len(li) - 1):
         nochange = True
         for j in range(len(li)-i-1):
@@ -26,5 +26,6 @@ if __name__ == '__main__':
     bubble_sort(li)
 
 '''
-bubble_sort running time: 7.181552886962891 secs.
+---- bubble_sort ----
+Running Time: 7.220380783081055 secs.
 '''
