@@ -7,7 +7,7 @@ from cal_time import *
 
 def shit(li, low, high):
     '''
-    创建大根堆
+    创建大根堆 向下调整函数
     :param li:
     :param low:
     :param high:
@@ -48,9 +48,14 @@ if __name__ == '__main__':
     random.shuffle(li)
 
     heap_sort(li)
-    # print(li)
 
 '''
 ---- heap_sort ----
 Running Time: 0.027005910873413086 secs.
+
+[9, 6, 8, 4, 3, 7, 5, 0, 2, 1]
+      9
+   6     8
+ 4   3 7   5
+0 2 1
 '''
