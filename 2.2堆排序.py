@@ -90,31 +90,23 @@ class HeapSort():
                 self.shitUp(li, 0, i - 1)
 
     @cal_time
-    def topKing(self, li, k,sort=False):
-        '''
-        创建大根堆
-            时间复复杂度：O(nlogn)
-        :param li: 列表
-        :param sort: 是否排序除数
-        :return: None
-        '''
+    def topKing(self, li, k):
         n = k - 1
         heap = li[0:k]
-        print(heap)
         # 创建 k个元素的 K堆
         for i in range((n - 1) // 2, -1, -1):
             # i 表示对节点元素的指针
-            self.shitDown(heap, i, n)
+            self.shitUp(heap, i, n)
 
-        # 遍历列表维护 K堆
+        # 遍历列表维护 K堆 heap
         for i in range(k, len(li)-1):
             if li[i] > heap[0]:
                 heap[0] = li[i]
-                self.shitDown(heap, 0 , n)
-
+                self.shitUp(heap, 0 , n)
+        # 挨个出数 K堆 heap
         for i in range(k-1, -1, -1):
-            li[0], li[i] = li[i], li[0]
-            self.shitDown(li, 0, i-1)
+            heap[0], heap[i] = heap[i], heap[0]
+            self.shitUp(heap, 0, i-1)
         return heap
 
 if __name__ == '__main__':
@@ -136,6 +128,7 @@ if __name__ == '__main__':
     heap.heap_shitUp(li, True)
     print(li)
 
+    # topKing
     a = heap.topKing(li, 10)
     print(a)
 
