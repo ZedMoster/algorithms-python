@@ -41,7 +41,6 @@ def merge_sort(li):
     right = len(li) - 1
     _merge_sort(li, left , right)
 
-
 if __name__ == '__main__':
     li = list(range(1000))
     random.shuffle(li)
