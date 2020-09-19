@@ -35,8 +35,10 @@ def _merge_sort(li, left ,right):
         merge(li, left, mid, right)
 
 @cal_time
-def merge_sort(li, left, right):
+def merge_sort(li):
     '''时间复复杂度：O(nlogn)'''
+    left = 0
+    right = len(li) - 1
     _merge_sort(li, left , right)
 
 
@@ -44,7 +46,7 @@ if __name__ == '__main__':
     li = list(range(1000))
     random.shuffle(li)
 
-    merge_sort(li, 0 ,len(li) - 1)
+    merge_sort(li)
 
 
 '''
