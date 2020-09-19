@@ -89,11 +89,40 @@ class HeapSort():
                 # 范围重新归位
                 self.shitUp(li, 0, i - 1)
 
+    @cal_time
+    def topKing(self, li, k,sort=False):
+        '''
+        创建大根堆
+            时间复复杂度：O(nlogn)
+        :param li: 列表
+        :param sort: 是否排序除数
+        :return: None
+        '''
+        n = k - 1
+        heap = li[0:k]
+        print(heap)
+        # 创建 k个元素的 K堆
+        for i in range((n - 1) // 2, -1, -1):
+            # i 表示对节点元素的指针
+            self.shitDown(heap, i, n)
+
+        # 遍历列表维护 K堆
+        for i in range(k, len(li)-1):
+            if li[i] > heap[0]:
+                heap[0] = li[i]
+                self.shitDown(heap, 0 , n)
+
+        for i in range(k-1, -1, -1):
+            li[0], li[i] = li[i], li[0]
+            self.shitDown(li, 0, i-1)
+        return heap
+
 if __name__ == '__main__':
     li = list(range(1000))
     random.shuffle(li)
 
     heap = HeapSort()
+
 
     # 创建堆
     heap.heap_shitDown(li)
@@ -106,6 +135,9 @@ if __name__ == '__main__':
     print(li)
     heap.heap_shitUp(li, True)
     print(li)
+
+    a = heap.topKing(li, 10)
+    print(a)
 
 
 '''
