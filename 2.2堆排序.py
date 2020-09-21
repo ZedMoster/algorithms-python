@@ -115,9 +115,10 @@ if __name__ == '__main__':
 
     heap = HeapSort()
 
-    # 创建堆
+    # 创建大根堆
     heap.heap_shitDown(li)
     print(li)
+    # 创建小根堆
     heap.heap_shitUp(li)
     print(li)
 
@@ -127,7 +128,7 @@ if __name__ == '__main__':
     heap.heap_shitUp(li, True)
     print(li)
 
-    # topKing
+    # topKing - 10
     a = heap.topKing(li, 10)
     print(a)
 
