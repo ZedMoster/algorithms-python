@@ -11,7 +11,7 @@ def cal_time(func):
         start_time = time.time()  # 这个是程序开始时间
         res = func(*args, **kwargs)
         end_time = time.time()  # 这个是程序结束时间
-        print("---- %s ----\nRunning Time: %s secs." % (func.__name__, end_time - start_time))
+        print("---- %s Running Time ----\n%s secs." % (func.__name__, end_time - start_time))
         return res
     # 返回装饰器.函数名称
     return wrapper
